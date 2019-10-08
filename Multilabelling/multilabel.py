@@ -57,14 +57,18 @@ with h5py.File(filename,"r") as f:
     with napari.gui_qt():
         # create a Viewer 
         viewer = napari.Viewer()
-        # add layers
+        
+        # add Antibody layers
         for key in antibody_keys:
-            #viewer.add_image(np.max(f[key]['imaging']['data']['stack'][:,:,1,:], axis=2), name=key[3:])
             viewer.add_image(f[key]['imaging']['data']['stack'][:,:,1,:], name=key[3:])
-        # add DAPI
-        #viewer.add_image(np.max(f[antibody_keys[0]]['imaging']['data']['stack'][:,:,0,:], axis=2), name="DAPI",)
+            print(f[key]['imaging']['registration']['displacement'][:])
+        
+        # add DAPI from first acquistion
         viewer.add_image(f[antibody_keys[0]]['imaging']['data']['stack'][:,:,0,:], name="DAPI",)
+        
+        # adjust blending modes, visibility and apply registration as layer translations
         for layer in viewer.layers:
+            key = "AB_" + layer.name
             layer.blending="additive"
             if layer.name == "DAPI":
                 layer.visible = True
@@ -72,3 +76,5 @@ with h5py.File(filename,"r") as f:
             else:
                 layer.visible = False
                 layer.colormap = 'green'
+                xtrans, ytrans =   f[key]['imaging']['registration']['displacement'][:]
+                layer.translate = [xtrans, ytrans, 0]
