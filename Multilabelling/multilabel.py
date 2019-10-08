@@ -51,11 +51,7 @@ with h5py.File(filename,"r") as f:
     if len(antibody_keys) == 0:
         print("No Antibodies found")
         exit()
-    imshape = f[antibody_keys[0]]['imaging']['data']['stack'][:,:,0,:].shape
-    print(imshape)
-    # create Qt GUI context
-    with napari.gui_qt():
-        # create a Viewer 
+    with napari.gui_qt(): 
         viewer = napari.Viewer()
         
         # add Antibody layers
@@ -78,3 +74,4 @@ with h5py.File(filename,"r") as f:
                 layer.colormap = 'green'
                 xtrans, ytrans =   f[key]['imaging']['registration']['displacement'][:]
                 layer.translate = [xtrans, ytrans, 0]
+                print(f"Applied registration transformation to layer {layer.name}. x,y,z - displacement {layer.translate}.")
