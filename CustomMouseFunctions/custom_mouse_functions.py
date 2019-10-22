@@ -34,7 +34,7 @@ with napari.gui_qt():
     labeled = ndi.label(blobs)[0]
 
     # Measure some properties of the blobs and create a DataFrame
-    measurements = regionprops_table(label_image= labeled, properties=('label','area', 'bbox'))
+    measurements = regionprops_table(label_image= labeled, properties=('label','area', 'eccentricity', 'solidity'))
     df = pd.DataFrame(measurements)
     # Create a Qt TableView from the pandas table
     model = pandasModel(df[df.label==1]) # dirty hack so we just have a one-row table
@@ -42,8 +42,7 @@ with napari.gui_qt():
     view.setModel(model)
     view.resize(800, 200)
     view.show()
-    text = QtWidgets.QLabel("asdsad")
-    text.setText("<b>asdsad</b>: asdsad\n <h1> asdsad</h1>")
+    text = QtWidgets.QLabel("")
     text.show()
     labels_layer = viewer.add_labels(labeled, name='blob ID')
 
