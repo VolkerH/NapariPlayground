@@ -16,3 +16,10 @@ available in my custom viewer with a few lines of python using napari [Source Co
 
 A quick and dirty hack, just to show what a label inspector could look like in napari. [Source Code](./CustomMouseFunctions/custom_mouse_functions.py)
 ![](./Gallery/napari_label_inspector.gif)
+
+
+## Live webcam with face detection results as shapes layer
+
+Based on the opencv facedetect demo code. Adapted to napari.
+[Code](./LiveUpdate/webcam_opencv.py)
+![](./Gallery/webcam2.gif)
