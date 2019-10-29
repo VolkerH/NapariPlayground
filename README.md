@@ -21,5 +21,6 @@ A quick and dirty hack, just to show what a label inspector could look like in n
 ## Live webcam with face detection results as shapes layer
 
 Based on the opencv facedetect demo code. Adapted to napari.
+Note: requires PyQt5, will crash with PySide (due to opencv using PyQt)
 [Code](./LiveUpdate/webcam_opencv.py)
 ![](./Gallery/webcam2.gif)
