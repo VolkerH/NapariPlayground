@@ -12,6 +12,8 @@ available in my custom viewer with a few lines of python using napari [Source Co
 
 ![](./Gallery/multilabelling.png)
 
+![](./Gallery/multiplex_napari2.gif)
+
 ## Simple label/object inspector demo
 
 A quick and dirty hack, just to show what a label inspector could look like in napari. [Source Code](./CustomMouseFunctions/custom_mouse_functions.py)
