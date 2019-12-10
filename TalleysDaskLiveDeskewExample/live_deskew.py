@@ -36,7 +36,7 @@ if  if __name__ == "__main__":
     psf = io.imread("psffile")
 
     # https://docs.python.org/3.8/library/functools.html#functools.partial
-    deskew = last3dims(partial(pycudadecon.deskew_gpu, angle=31.5))
+    deskew = last3dims(partial(pycudadecon.deskewGPU, angle=31.5))
     deconv = last3dims(partial(pycudadecon.decon, psf=psf, background=10))
     # note: this is done in two steps just as an example...
     # in reality pycudadecon.decon also has a deskew argument
