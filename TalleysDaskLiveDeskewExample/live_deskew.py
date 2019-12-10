@@ -44,13 +44,13 @@ if  __name__ == "__main__":
     # map and chain those functions across all dask blocks
     deskewed = stack.map_blocks(deskew, dtype="uint16")
     deconvolved = deskewed.map_blocks(deconv, dtype="float32")
-    cropped = deconvolved.map_blocks(crop, dtype="float32")
+    #cropped = deconvolved.map_blocks(crop, dtype="float32")
 
     # put the resulting dask array into napari.
     # (don't forget the contrast limits and is_pyramid==False !)
     with napari.gui_qt():
         v = napari.view_image(
-            cropped,
+            deconvolved,
             contrast_limits=[90, 1500],
             is_pyramid=False,
             ndisplay=3,
