@@ -24,7 +24,7 @@ def crop(array):
     return array[:, 2:, 10:-20, :500]
 
 
-if  if __name__ == "__main__":
+if  __name__ == "__main__":
     import sys
     import os.sep as sep
     stackfolder = sys.argv[1]
