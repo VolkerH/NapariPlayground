@@ -26,7 +26,7 @@ def crop(array):
 
 if  __name__ == "__main__":
     import sys
-    import os.sep as sep
+    from os import sep
     stackfolder = sys.argv[1]
     psffile = sys.argv[2]
     print(f"Stackfolder: {stackfolder}")
