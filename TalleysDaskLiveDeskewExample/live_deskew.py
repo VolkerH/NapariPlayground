@@ -31,9 +31,9 @@ if  __name__ == "__main__":
     psffile = sys.argv[2]
     print(f"Stackfolder: {stackfolder}")
     print(f"PSF file: {psffile}")
-    # load stacks with da :sk_image, and psf with skimage
+    # load stacks with dask_image, and psf with skimage
     stack = imread(stackfolder+sep+"*.tif")
-    psf = io.imread("psffile")
+    psf = io.imread(psffile)
 
     # https://docs.python.org/3.8/library/functools.html#functools.partial
     deskew = last3dims(partial(pycudadecon.deskewGPU, angle=31.5))
