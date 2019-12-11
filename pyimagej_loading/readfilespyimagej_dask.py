@@ -5,8 +5,8 @@
 # 2. a snippet demonstrating how to lazily read large stacks into napari using dask.delayed
 # shared by Talley Lambert at https://napari.org/tutorials/dask
 #
-#
-
+# 
+ 
 
 """
 Read images lazily using dask and ImageJ; display them with Napari.
@@ -53,5 +53,3 @@ with napari.gui_qt():
     print(stack.shape) 
     print(stack)
     viewer = napari.view_image(stack)
-
-    
