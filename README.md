@@ -19,8 +19,8 @@ available in my custom viewer with a few lines of python using napari [Source Co
 A quick and dirty hack, just to show what a label inspector could look like in napari. [Source Code](./CustomMouseFunctions/custom_mouse_functions.py)
 ![](./Gallery/napari_label_inspector.gif)
 
-An addition to this hack, where measurement is performed by selecting Label and Intensity layers in napari and pressing a key (.CustomMouseFunctions/MeasurementExplorer/region_measurement.py).
-![](./Gallerry/measure_labels.gif)
+An addition to this hack, where measurement is performed by selecting Label and Intensity layers in napari and pressing a key [Source](.CustomMouseFunctions/MeasurementExplorer/region_measurement.py).
+![](./Gallery/measure_labels.gif)
 
 
 ## Live webcam with face detection results as shapes layer
